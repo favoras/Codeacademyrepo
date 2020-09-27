@@ -1,7 +1,7 @@
 # Codeacademyrepo
 DEL BANKO EGZAMINO :
 Database : H2
-
+Branch - exam_bankapp
 Lenteliu sukurimas : BankAPP -> h2databasecreation.txt
 pom.xml -> 13 java versija, H2 database, JBCrypt
 

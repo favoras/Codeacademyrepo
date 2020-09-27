@@ -1,0 +1,50 @@
+create table USER
+(
+    ID            INT auto_increment,
+    USER_LOGIN    VARCHAR not null,
+    USER_PASSWORD VARCHAR not null,
+    FIRST_NAME    VARCHAR not null,
+    LAST_NAME     VARCHAR not null,
+    BIRTH_DATE    DATE    not null,
+    PERSONAL_CODE BIGINT  not null,
+    constraint USER_PK
+        primary key (ID)
+);
+
+create unique index USER_PERSONAL_CODE_UINDEX
+    on USER (PERSONAL_CODE);
+
+create unique index USER_USER_LOGIN_UINDEX
+    on USER (USER_LOGIN);
+
+
+
+create table BANK_ACCOUNT
+(
+    ID              INT auto_increment,
+    CREDIT_CARD_NUM VARCHAR not null,
+    CCN_BALANCE     DOUBLE  not null,
+    DEBIT_CARD_NUM  VARCHAR not null,
+    DCN_BALANCE     DOUBLE,
+    DATE_CREATED    DATE    not null,
+    COMPANY_NAME    VARCHAR default NULL,
+    USER_ID         BIGINT  not null
+);
+
+create unique index BANK_ACCOUNT_CREDIT_CARD_NUM_UINDEX
+    on BANK_ACCOUNT (CREDIT_CARD_NUM);
+
+create unique index BANK_ACCOUNT_DEBIT_CARD_NUM_UINDEX
+    on BANK_ACCOUNT (DEBIT_CARD_NUM);
+
+create unique index BANK_ACCOUNT_ID_UINDEX
+    on BANK_ACCOUNT (ID);
+
+create unique index BANK_ACCOUNT_USER_ID_UINDEX
+    on BANK_ACCOUNT (USER_ID);
+
+alter table BANK_ACCOUNT
+    add constraint BANK_ACCOUNT_PK
+        primary key (ID);
+
+
